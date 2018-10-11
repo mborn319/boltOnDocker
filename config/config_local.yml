@@ -1,0 +1,14 @@
+# Database setup. The driver can be either 'sqlite', 'mysql' or 'postgres'.
+#
+# For SQLite, only the databasename is required. However, MySQL and PostgreSQL
+# also require 'username', 'password', and optionally 'host' ( and 'port' ) if the database
+# server is not on the same host as the web server.
+#
+# If you're trying out Bolt, just keep it set to SQLite for now.
+database:
+    driver: mysql
+    databasename: %MYSQL_DATABASE%
+    username: %MYSQL_USER%
+    password: %MYSQL_PASSWORD%
+    host: mariadb
+    port: 3306
