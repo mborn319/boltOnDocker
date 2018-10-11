@@ -1,0 +1,1 @@
+FROM rossriley/docker-bolt:mysql-3.5
