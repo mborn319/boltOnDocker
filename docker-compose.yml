@@ -6,16 +6,17 @@ services:
             context: ./
             dockerfile: Dockerfile
         volumes:
-            - ./db-data:/var/www/html/app/database
-            - ./files:/var/www/html/public/files
-            - ./extensions:/var/www/html/extensions
-            - ./config:/var/www/html/app/config
-            - ./theme:/var/www/html/public/theme
-            - ./php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+            - ./app/db-data:/var/www/html/app/database
+            - ./app/files:/var/www/html/public/files
+            - ./app/extensions:/var/www/html/extensions
+            - ./app/config:/var/www/html/app/config
+            - ./app/theme:/var/www/html/public/theme
+            - ./config/php.ini:/usr/local/etc/php/conf.d/custom.ini
+            - ./config/bolt_config_local.yml:/var/www/html/app/config/config_local.yml
         ports:
             - "127.0.0.1:8000:80"
         env_file:
-            - bolt.env
+            - config/bolt.env
         links:
             - mariadb
         environment:
@@ -27,7 +28,9 @@ services:
         image: mariadb:latest
         restart: always
         env_file:
-            - mariadb.env
+            - config/mariadb.env
+        volumes:
+            - ./app/mysql:/var/lib/mysql
         environment:
             - MYSQL_DATABASE=${MYSQL_DATABASE}
             - MYSQL_USER=${MYSQL_USER}
