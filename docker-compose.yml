@@ -11,6 +11,7 @@ services:
             - ./extensions:/var/www/html/extensions
             - ./config:/var/www/html/app/config
             - ./theme:/var/www/html/public/theme
+            - ./php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
         ports:
             - "127.0.0.1:8000:80"
         env_file:
@@ -31,3 +32,8 @@ services:
             - MYSQL_DATABASE=${MYSQL_DATABASE}
             - MYSQL_USER=${MYSQL_USER}
             - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    adminer:
+        image: dockette/adminer:mysql
+        restart: always
+        ports:
+            - "127.0.0.1:8008:80"

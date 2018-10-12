@@ -11,4 +11,7 @@ Simple setup for Bolt CMS on MariaDB and Docker.
 
 ## Configuration
 
-Edit the bolt database name, username and password via `mariadb.env`.
+* `.env` stores the bolt database name, username and password config.
+* `mariadb.env` stores env vars which are passed to the mariadb container.
+* `bolt.env` stores env vars which are passed to the bolt container.
+* `php/custom.ini` stores custom PHP settings.
