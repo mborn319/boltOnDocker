@@ -1,6 +1,6 @@
-# Bolt CMS On Docker with MariaDB
+# Bolt CMS On Docker with SqLite
 
-Simple setup for Bolt CMS on MariaDB and Docker.
+Simple setup for Bolt CMS on [SqLite][1] and Docker.
 
 ## Installation
 
@@ -21,6 +21,6 @@ This repo uses
 * [Ross Riley's Bolt Docker Image][2], including PHP 7.0, Nginx and SqlLite by default.
 * [Adminer][3] for database management through a web GUI
 
-[1]: https://hub.docker.com/_/mariadb/
+[1]: https://sqlite.org/index.html
 [2]: https://hub.docker.com/r/rossriley/docker-bolt/
 [3]: https://github.com/dockette/adminer
