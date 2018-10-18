@@ -6,9 +6,5 @@
 #
 # If you're trying out Bolt, just keep it set to SQLite for now.
 database:
-    driver: mysql
+    driver: sqlite
     databasename: %MYSQL_DATABASE%
-    username: %MYSQL_USER%
-    password: %MYSQL_PASSWORD%
-    host: mariadb
-    port: 3306

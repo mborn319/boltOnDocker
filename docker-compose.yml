@@ -17,26 +17,8 @@ services:
             - "127.0.0.1:8000:80"
         env_file:
             - config/bolt.env
-        links:
-            - mariadb
-        environment:
-            - MYSQL_DATABASE=${MYSQL_DATABASE}
-            - MYSQL_USER=${MYSQL_USER}
-            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-
-    mariadb:
-        image: mariadb:latest
-        restart: always
-        env_file:
-            - config/mariadb.env
-        volumes:
-            - ./app/mysql:/var/lib/mysql
-        environment:
-            - MYSQL_DATABASE=${MYSQL_DATABASE}
-            - MYSQL_USER=${MYSQL_USER}
-            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     adminer:
-        image: dockette/adminer:mysql
+        image: dockette/adminer:full
         restart: always
         ports:
             - "127.0.0.1:8008:80"

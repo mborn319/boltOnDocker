@@ -11,8 +11,6 @@ Simple setup for Bolt CMS on MariaDB and Docker.
 
 ## Configuration
 
-* `config/.env` stores the bolt database name, username and password config.
-* `config/mariadb.env` stores env vars which are passed to the mariadb container.
 * `config/bolt.env` stores env vars which are passed to the bolt container.
 * `config/php.ini` stores custom PHP settings.
 
@@ -20,8 +18,7 @@ Simple setup for Bolt CMS on MariaDB and Docker.
 
 This repo uses
 
-* [MariaDB][1] for the database.
-* [Ross Riley's Bolt Docker Image][2], including PHP 7.0, Nginx and SqlLite. (Unused.)
+* [Ross Riley's Bolt Docker Image][2], including PHP 7.0, Nginx and SqlLite by default.
 * [Adminer][3] for database management through a web GUI
 
 [1]: https://hub.docker.com/_/mariadb/
