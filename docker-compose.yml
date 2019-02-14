@@ -6,13 +6,10 @@ services:
             context: ./
             dockerfile: Dockerfile
         volumes:
-            - ./app/db-data:/var/www/html/app/database
-            - ./app/files:/var/www/html/public/files
-            - ./app/extensions:/var/www/html/extensions
-            - ./app/config:/var/www/html/app/config
-            - ./app/theme:/var/www/html/public/theme
+            - ./app:/var/www/html/app
+            - ./public:/var/www/html/public
+            - ./extensions:/var/www/html/extensions
             - ./config/php.ini:/usr/local/etc/php/conf.d/custom.ini
-            - ./config/bolt_config_local.yml:/var/www/html/app/config/config_local.yml
         ports:
             - "127.0.0.1:8000:80"
         env_file:
@@ -30,11 +27,12 @@ services:
         env_file:
             - config/mariadb.env
         volumes:
-            - ./app/mysql:/var/lib/mysql
+            - ./mysql:/var/lib/mysql
         environment:
             - MYSQL_DATABASE=${MYSQL_DATABASE}
             - MYSQL_USER=${MYSQL_USER}
             - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     adminer:
         image: dockette/adminer:mysql
         restart: always
