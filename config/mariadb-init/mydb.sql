@@ -1,0 +1,2 @@
+-- CREATE TABLE `blabla`;
+-- INSERT INTO `blabla` (id, name) ('1', 'test');
