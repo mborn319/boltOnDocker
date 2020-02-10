@@ -1,10 +1,8 @@
-version: '2'
+version: "3"
 
 services:
     bolt:
-        build:
-            context: ./
-            dockerfile: Dockerfile
+        image: rossriley/docker-bolt:mysql-3.5
         volumes:
             - ./app:/var/www/html/app
             - ./public:/var/www/html/public
@@ -34,8 +32,8 @@ services:
             - MYSQL_USER=${MYSQL_USER}
             - MYSQL_PASSWORD=${MYSQL_PASSWORD}
             - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-    adminer:
-        image: dockette/adminer:mysql
-        restart: always
-        ports:
-            - "127.0.0.1:8008:80"
+    # adminer:
+    #     image: dockette/adminer:mysql
+    #     restart: always
+    #     ports:
+    #         - "127.0.0.1:8008:80"
